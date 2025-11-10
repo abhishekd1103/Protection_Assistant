@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 
 # PAGE CONFIG
-st.set_page_config(page_title="Relay Settings Assistant", page_icon="⚡", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Relay Settings Assistant", page_icon="⚡", layout="wide", initial_sidebar_state="expanded")
 
 # STYLING
 st.markdown("""
