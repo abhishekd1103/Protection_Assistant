@@ -1,0 +1,114 @@
+# Relay Settings Assistant - Transformer Protection Calculator
+
+Professional relay settings calculation tool based on IEEE C37.91-2021, IEEE 242-2001, and IEC standards.
+
+## Quick Start
+
+### 1. Install
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run
+```bash
+streamlit run app.py
+```
+
+### 3. Login
+- **Demo User:** `engineer@company.com`
+- **Password:** `Test@123`
+
+## Features
+
+✅ **Professional Login** - User registration and authentication
+✅ **Real-Time Calculations** - Differential (87T), Overcurrent (51/50), I²t protection
+✅ **Dual-Value System** - Recommended (calculated) vs Value Set (manual override)
+✅ **DOCX Reports** - Professional Word document generation with all settings
+✅ **IEEE/IEC Standards** - IEEE C37.91-2021, IEEE 242-2001, IEEE C57.109-1985, IEC 60255-187-1
+✅ **Free Deployment** - Deploy to Streamlit Cloud in 2 minutes
+
+## Workflow
+
+1. **New Project** - Enter transformer data (nameplate, impedance, CT ratios)
+2. **Calculations** - Real-time relay settings calculated per standards
+3. **Review** - Check recommended values, adjust if needed
+4. **Report** - Generate professional DOCX file
+
+## Protection Functions
+
+### Differential (87T) - IEEE C37.91-2021
+- Pickup (accounts for CT error, LTC, magnetizing current)
+- Slope 1 (25-35% for LTC, 20-30% non-LTC)
+- Slope 2 (50-70% for CT saturation)
+- Harmonic restraint (2nd: 10-20%, 5th: 30-40%)
+- High-set unrestrained (8-12 pu)
+
+### Overcurrent (51/50) - IEEE 242-2001
+- Pickup: 125% rated current
+- HV/LV coordination verification
+- Time margin check (≥0.3 sec per IEEE 242 Cl 8.5)
+
+### Through-Fault I²t - IEEE C57.109-1985
+- Thermal limit: 1250 A²s
+- Mechanical limit: Category-dependent
+- Alarm and trip thresholds
+
+## Deployment
+
+### Streamlit Cloud (Recommended - FREE)
+```bash
+# 1. Push to GitHub
+git push origin main
+
+# 2. Go to streamlit.io/cloud
+# 3. Click "New app"
+# 4. Select repo and app.py
+# 5. Deploy!
+
+# Live at: https://your-username-relay-settings.streamlit.app
+```
+
+### Local
+```bash
+streamlit run app.py
+# Open http://localhost:8501
+```
+
+## Calculation Example
+
+**Input:** 50 MVA, 132/33 kV, Dyn11, 12.5% impedance
+
+**Results:**
+- HV Rated Current: 218.69 A
+- LV Rated Current: 874.77 A
+- Max Through-Fault: 8.0 pu
+- Differential Pickup: 0.30 pu (IEEE C37.91 Cl 5.3.4)
+- Overcurrent Coordination: ✅ PASS (Margin: 0.32 sec ≥ 0.3 sec)
+
+## Standards
+
+- **IEEE C37.91-2021:** Protective Relay Applications to Power Transformers
+- **IEEE 242-2001:** Protection and Coordination of Industrial/Commercial Power Systems (Buff Book)
+- **IEEE C57.109-1985:** Transformer Through-Fault-Current Duration
+- **IEC 60255-187-1:2021:** Differential Protection Requirements
+
+## Security
+
+- SHA256 password hashing
+- SQLite database (local storage)
+- User-specific project isolation
+- Audit logging
+
+## Support
+
+- Documentation: See inline comments in app.py
+- GitHub: Submit issues on GitHub
+- Standards: IEEE.org for full references
+
+## License
+
+MIT License - Free for commercial and personal use
+
+---
+
+**Version:** 1.0 | **Status:** Production Ready ✅
